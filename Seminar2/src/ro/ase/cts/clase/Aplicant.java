@@ -7,36 +7,45 @@ public abstract class Aplicant{
     protected int punctaj;
     protected int nr_proiecte;
     protected String[] denumireProiect;
+    protected static int PUNCTAJ_MINIM=80;
 
     public String getNume() {
         return nume;
     }
+
     public void setNume(String nume) {
         this.nume = nume;
     }
+
     public String getPrenume() {
         return prenume;
     }
+
     public void setPrenume(String prenume) {
         this.prenume = prenume;
     }
+
     public int getVarsta() {
         return varsta;
     }
+
     public void setVarsta(int varsta) {
         this.varsta = varsta;
     }
 
-    public void statut(){
-        if(punctaj>80)
-            System.out.println("Aplicantul "+nume+" "+prenume+" a fost acceptat.");
-        else
-            System.out.println("Aplicantul "+nume+" "+prenume+" nu a fost acceptat.");
+    public void afiseazaStatut() {
+        StringBuilder builder=new StringBuilder();
+        builder.append("Aplicantul ");
+        builder.append(this.nume).append(" ").append(this.prenume);
+        builder.append(((this.punctaj > Aplicant.PUNCTAJ_MINIM)?"":" nu"));
+        builder.append(" a fost acceptat.");
+        System.out.println(builder);
     }
 
     public int getPunctaj() {
         return punctaj;
     }
+
     public void setPunctaj(int punctaj) {
         this.punctaj = punctaj;
     }
@@ -59,8 +68,11 @@ public abstract class Aplicant{
     public int getNr_proiecte() {
         return nr_proiecte;
     }
+
     public void setNr_proiecte(int nr_proiecte, String[] proiecte) {
         this.nr_proiecte = nr_proiecte;
+        this.denumireProiect = denumireProiect;
     }
 
+    public abstract void afiseazaFinantare();
 }

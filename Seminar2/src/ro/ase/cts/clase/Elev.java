@@ -5,18 +5,26 @@ import java.util.Arrays;
 public class Elev extends Aplicant{
 	private int clasa;
 	private String tutore;
+	private static int VALOARE_FINANTARE_ELEV = 30;
 
 	public int getClasa() {
 		return clasa;
 	}
+
 	public void setClasa(int i) {
 		this.clasa = i;
 	}
+
 	public String getTutore() {
 		return tutore;
 	}
+
 	public void setTutore(String tutore) {
 		this.tutore = tutore;
+	}
+
+	public static void setValoareFinantareElev(int valoareFinantareElev) {
+		VALOARE_FINANTARE_ELEV = valoareFinantareElev;
 	}
 
 	@Override
@@ -30,6 +38,11 @@ public class Elev extends Aplicant{
 		super();
 	}
 
+	@Override
+	public void afiseazaFinantare() {
+		System.out.println("Elevul " + getNume() + " " + getPrenume() + " primeste " + Elev.VALOARE_FINANTARE_ELEV + " Euro/zi in proiect.");
+	}
+
 	public Elev(String nume, String prenume, int varsta, int punctaj,
 				int nr_proiecte, String[] denumireProiect, int clasa, String tutore) {
 		super(nume,prenume,varsta,punctaj,nr_proiecte,denumireProiect);
@@ -37,9 +50,4 @@ public class Elev extends Aplicant{
 		this.tutore = tutore;
 	}
 
-	public int finantare() {
-		int s=30;
-		System.out.println("Angajatul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
-		return s;
-	}
 }
