@@ -5,7 +5,7 @@ public class Hotel {
     private String numeHotel;
     private int nrCamere;
     private int nrCamereOcupate;
-    private static Hotel instance = null;
+     private static Hotel instance = null;
 
     private Hotel(String numeHotel, int nrCamere, int nrCamereOcupate) {
         this.numeHotel = numeHotel;
